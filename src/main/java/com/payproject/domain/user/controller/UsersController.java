@@ -26,14 +26,14 @@ public class UsersController
 	@GetMapping
 	public ResponseEntity<List<UserEntity>> getAllUsers(){
 		List<UserEntity> users = this.userService.getAllUsers();
-		return new ResponseEntity<>(users, HttpStatus.ACCEPTED);
+		return new ResponseEntity<>(users, HttpStatus.OK);
 	}
 
 	@GetMapping("/getUser")
 	public ResponseEntity<UserEntity> getUser(@RequestParam Long id) throws Exception
 	{
 		UserEntity user = this.userService.findUserById(id);
-		return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
+		return new ResponseEntity<>(user, HttpStatus.OK);
 	}
 
 	@PutMapping("/update")
@@ -41,13 +41,13 @@ public class UsersController
 		throws Exception
 	{
 		UserEntity user = this.userService.updateUser(id, userDTO);
-		return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
+		return new ResponseEntity<>(user, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/delete")
 	public ResponseEntity<String> removeUser(@RequestParam Long id) throws Exception
 	{
 		String returnMessage = this.userService.deleteUser(id);
-		return new ResponseEntity<>(returnMessage, HttpStatus.ACCEPTED);
+		return new ResponseEntity<>(returnMessage, HttpStatus.NO_CONTENT);
 	}
 }
