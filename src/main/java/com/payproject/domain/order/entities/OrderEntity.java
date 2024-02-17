@@ -1,6 +1,5 @@
 package com.payproject.domain.order.entities;
 
-import com.payproject.domain.order.dto.ItemDTO;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;

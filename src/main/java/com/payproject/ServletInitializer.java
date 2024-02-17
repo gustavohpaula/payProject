@@ -1,6 +1,5 @@
 package com.payproject;
 
-import com.payproject.PayProjectApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
