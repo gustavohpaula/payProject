@@ -1,6 +1,6 @@
 package com.payproject.domain.user.services;
 
-import com.payproject.domain.user.dto.UserDTO;
+import com.payproject.domain.user.dtos.UserDTO;
 import com.payproject.domain.user.entities.UserEntity;
 import com.payproject.domain.user.repositories.UserRepository;
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.payproject.domain.user.entities;
 
-import com.payproject.domain.user.dto.UserDTO;
+import com.payproject.domain.user.dtos.UserDTO;
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -1,4 +1,4 @@
-package com.payproject.domain.user.dto;
+package com.payproject.domain.user.dtos;
 
 import lombok.*;
 

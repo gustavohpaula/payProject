@@ -1,8 +1,7 @@
 package com.payproject.payproject.domain.user.dto;
 
-import com.payproject.domain.user.dto.UserDTO;
+import com.payproject.domain.user.dtos.UserDTO;
 import org.junit.jupiter.api.Test;
-import org.mockito.internal.matchers.Null;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
