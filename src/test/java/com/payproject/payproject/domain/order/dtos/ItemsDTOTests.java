@@ -13,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class ItemsDTOTests
 {
 
+	BigDecimal value = new BigDecimal("10.00");
 	@Test
 	void shouldCreateAItem()
 	{
@@ -25,7 +26,7 @@ class ItemsDTOTests
 	void shouldNotCreateAItemWhitoutName()
 	{
 		Exception exception = assertThrows(NullPointerException.class,
-			() -> new ItemDTO(null, new BigDecimal("10.00"), 1L));
+			() -> new ItemDTO(null, value, 1L));
 		assertEquals("name is marked non-null but is null", exception.getMessage());
 	}
 
@@ -41,7 +42,7 @@ class ItemsDTOTests
 	void shouldNotCreateAItemWhitoutUserId()
 	{
 		Exception exception = assertThrows(NullPointerException.class,
-			() -> new ItemDTO("name", new BigDecimal("10.00"), null));
+			() -> new ItemDTO("name", value, null));
 		assertEquals("userId is marked non-null but is null", exception.getMessage());
 	}
 }

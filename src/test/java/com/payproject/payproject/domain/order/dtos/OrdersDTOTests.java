@@ -14,11 +14,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class OrdersDTOTests
 {
+
+	BigDecimal value = new BigDecimal("10.00");
 	@Test
 	void shoudCreateAOrdersDTO()
 	{
-		List<ItemDTO> items = List.of(new ItemDTO("name", new BigDecimal("10.00"), 1L));
-		OrderDTO ordersDTO = new OrderDTO(items, new BigDecimal("10.00"), new BigDecimal("5.00"));
+		List<ItemDTO> items = List.of(new ItemDTO("name", value, 1L));
+		OrderDTO ordersDTO = new OrderDTO(items, value, value);
 
 		assertThat(ordersDTO).isNotNull();
 	}
@@ -26,8 +28,8 @@ class OrdersDTOTests
 	@Test
 	void shoudCreateAOrdersDTOWithoutFreight()
 	{
-		List<ItemDTO> items = List.of(new ItemDTO("name", new BigDecimal("10.00"), 1L));
-		OrderDTO ordersDTO = new OrderDTO(items, null, new BigDecimal("5.00"));
+		List<ItemDTO> items = List.of(new ItemDTO("name", value, 1L));
+		OrderDTO ordersDTO = new OrderDTO(items, null, value);
 
 		assertThat(ordersDTO).isNotNull();
 	}
@@ -35,8 +37,8 @@ class OrdersDTOTests
 	@Test
 	void shoudCreateAOrdersDTOWithoutDiscount()
 	{
-		List<ItemDTO> items = List.of(new ItemDTO("name", new BigDecimal("10.00"), 1L));
-		OrderDTO ordersDTO = new OrderDTO(items, new BigDecimal("10.00"), null);
+		List<ItemDTO> items = List.of(new ItemDTO("name", value,  1L));
+		OrderDTO ordersDTO = new OrderDTO(items,value, null);
 
 		assertThat(ordersDTO).isNotNull();
 	}
@@ -46,7 +48,7 @@ class OrdersDTOTests
 	{
 
 		Exception exception = assertThrows(NullPointerException.class,
-			() -> new OrderDTO(null, new BigDecimal("10.00"), new BigDecimal("10.00")));
+			() -> new OrderDTO(null,value, value));
 		assertEquals("items is marked non-null but is null", exception.getMessage());
 	}
 }

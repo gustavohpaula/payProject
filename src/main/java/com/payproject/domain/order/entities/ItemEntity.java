@@ -2,11 +2,9 @@ package com.payproject.domain.order.entities;
 
 import com.payproject.domain.order.dto.ItemDTO;
 import com.payproject.domain.user.entities.UserEntity;
-import com.payproject.domain.user.services.UserService;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import lombok.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity(name = "items")
 @Table(name = "items")
