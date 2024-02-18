@@ -2,9 +2,11 @@ package com.payproject.domain.order.entities;
 
 import com.payproject.domain.order.dto.ItemDTO;
 import com.payproject.domain.user.entities.UserEntity;
+import com.payproject.domain.user.services.UserService;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import lombok.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity(name = "items")
 @Table(name = "items")
@@ -19,13 +21,18 @@ public class ItemEntity
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	private BigDecimal value;
+	private BigDecimal itemValue;
 	@ManyToOne
+	@JoinColumn(name = "order_id")
+	private OrderEntity order;
+	@ManyToOne
+	@JoinColumn(name = "user_id")
 	private UserEntity user;
 
-	public ItemEntity(ItemDTO itemDTO){
+	public ItemEntity(ItemDTO itemDTO, UserEntity user) throws Exception
+	{
 		this.name = itemDTO.getName();
-		this.value = itemDTO.getValue();
-		this.user = itemDTO.getUser();
+		this.itemValue = itemDTO.getValue();
+		this.user = user;
 	}
 }

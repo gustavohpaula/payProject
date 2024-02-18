@@ -4,10 +4,12 @@ import com.payproject.domain.user.dtos.UserDTO;
 import com.payproject.domain.user.entities.UserEntity;
 import com.payproject.domain.user.repositories.UserRepository;
 import java.util.List;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@NoArgsConstructor
 public class UserService
 {
 

@@ -1,4 +1,4 @@
-package com.payproject.payproject.domain.user.dto;
+package com.payproject.payproject.domain.user.dtos;
 
 import com.payproject.domain.user.dtos.UserDTO;
 import org.junit.jupiter.api.Test;
