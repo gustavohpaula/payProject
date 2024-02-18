@@ -1,11 +1,7 @@
 package com.payproject.domain.order.dto;
 
-import com.payproject.domain.user.entities.UserEntity;
 import java.math.BigDecimal;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
@@ -13,8 +9,10 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ItemDTO
 {
+	@NonNull
 	private String name;
+	@NonNull
 	private BigDecimal value;
+	@NonNull
 	private Long userId;
-	private UserEntity user;
 }
