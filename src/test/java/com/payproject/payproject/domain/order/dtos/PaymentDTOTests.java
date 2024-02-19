@@ -9,6 +9,7 @@ import com.payproject.domain.user.entities.UserEntity;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -18,15 +19,19 @@ public class PaymentDTOTests
 
 	BigDecimal value = new BigDecimal("10.00");
 
+	OrderEntity order;
+	@BeforeEach
+	void setup(){
+		UserEntity user = new UserEntity(1L, "first name", "last name", "name@exemple.com", "123456789");
+		List<ItemEntity> items = List.of(
+			new ItemEntity(1L, "name", value, new OrderEntity(), user));
+		order = new OrderEntity(1L, items, value, value,
+			new Date(new java.util.Date().getTime()));
+	}
+
 	@Test
 	public void shoudCreateAPayment()
 	{
-		UserEntity user = new UserEntity(1L, "first name", "last name", "name@exemple.com", "123456789");
-		List<ItemEntity> items = List.of(
-			new ItemEntity(1L, "name", new BigDecimal("10.00"), new OrderEntity(), user));
-		OrderEntity order = new OrderEntity(1L, items, value, value,
-			new Date(new java.util.Date().getTime()));
-
 		assertThat(order).isNotNull();
 	}
 
@@ -34,18 +39,18 @@ public class PaymentDTOTests
 	public void shouldCalculateDiscountValue()
 	{
 		PaymentDTO paymentDTO = new PaymentDTO();
-		BigDecimal discountValue = paymentDTO.calculateDiscountValue(2, value);
+		BigDecimal discountValue = paymentDTO.calculateDiscountValue(order, new BigDecimal("0.84"));
 
-		assertThat(discountValue).isEqualTo(new BigDecimal("5.00"));
+		assertThat(discountValue).isEqualTo(new BigDecimal("8.4000"));
 	}
 
 	@Test
 	public void shouldCalculateFreightValue()
 	{
 		PaymentDTO paymentDTO = new PaymentDTO();
-		BigDecimal discountValue = paymentDTO.calculateFreight(2, value);
+		BigDecimal discountValue = paymentDTO.calculateFreight(order, new BigDecimal("0.84"));
 
-		assertThat(discountValue).isEqualTo(new BigDecimal("5.00"));
+		assertThat(discountValue).isEqualTo(new BigDecimal("8.4000"));
 	}
 }
 
