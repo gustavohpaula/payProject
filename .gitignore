@@ -14,20 +14,24 @@ backend/.springBeans
 backend/.sts4-cache
 
 ### IntelliJ IDEA ###
+.idea
 backend/.idea
 backend/*.iws
 backend/*.iml
 backend/*.ipr
 
 ### NetBeans ###
-backend//nbproject/private/
-backend//nbbuild/
-backend//dist/
-backend//nbdist/
-backend//.nb-gradle/
+backend/nbproject/private/
+backend/nbbuild/
+backend/dist/
+backend/nbdist/
+backend/.nb-gradle/
 backend/build/
 !backend/**/src/main/**/build/
 !backend/**/src/test/**/build/
 
 ### VS Code ###
 backend/.vscode/
+
+### Frontend ###
+frontend/node_modules
