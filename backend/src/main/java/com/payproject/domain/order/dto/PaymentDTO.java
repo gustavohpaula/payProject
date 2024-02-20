@@ -47,7 +47,7 @@ public class PaymentDTO
 
 			paymentValue = paymentValue.subtract(discountAmount).add(deliveryCost);
 
-			paymentList.add(new PaymentPerUserDTO().getPaymentPerUser(user.getFirstName(), paymentValue));
+			paymentList.add(new PaymentPerUserDTO().getPaymentPerUser(user.getFullName(), paymentValue));
 		}
 
 		return this;

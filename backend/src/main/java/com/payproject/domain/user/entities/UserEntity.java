@@ -17,23 +17,20 @@ public class UserEntity
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String firstName;
-	private String lastName;
+	private String fullName;
 	@Column(unique = true)
 	private String email;
 	@Column(unique = true)
 	private String document;
 
 	public UserEntity(UserDTO user){
-		this.firstName = user.getFirstName();
-		this.lastName = user.getLastName();
+		this.fullName = user.getFullName();
 		this.email = user.getEmail();
 		this.document = user.getDocument();
 	}
 
 	public void changeUserData(UserDTO user){
-		this.firstName = user.getFirstName();
-		this.lastName = user.getLastName();
+		this.fullName = user.getFullName();
 		this.email = user.getEmail();
 		this.document = user.getDocument();
 	}

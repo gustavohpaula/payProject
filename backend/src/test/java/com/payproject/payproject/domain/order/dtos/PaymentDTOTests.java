@@ -22,7 +22,7 @@ public class PaymentDTOTests
 	OrderEntity order;
 	@BeforeEach
 	void setup(){
-		UserEntity user = new UserEntity(1L, "first name", "last name", "name@exemple.com", "123456789");
+		UserEntity user = new UserEntity(1L, "first name", "name@exemple.com", "123456789");
 		List<ItemEntity> items = List.of(
 			new ItemEntity(1L, "name", value, new OrderEntity(), user));
 		order = new OrderEntity(1L, items, value, value,

@@ -9,9 +9,7 @@ import lombok.*;
 public class UserDTO
 {
 	@NonNull
-	private String firstName;
-	@NonNull
-	private String lastName;
+	private String fullName;
 	@NonNull
 	private String email;
 	@NonNull

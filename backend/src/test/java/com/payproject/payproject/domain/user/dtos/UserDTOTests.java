@@ -15,32 +15,24 @@ class UserDTOTests
 	@Test
 	void shouldCreateUser()
 	{
-		UserDTO user = new UserDTO("first name", "last name", "name@exemple.com", "123456789");
+		UserDTO user = new UserDTO("full name", "name@exemple.com", "123456789");
 
 		assertThat(user).isNotNull();
 	}
 
 	@Test
-	void shouldNotCreateUserWithoutFirstName()
+	void shouldNotCreateUserWithoutName()
 	{
 		Exception exception = assertThrows(NullPointerException.class,
-			() -> new UserDTO(null, "last name", "name@exemple.com", "123456789"));
+			() -> new UserDTO(null,  "name@exemple.com", "123456789"));
 		assertEquals("firstName is marked non-null but is null", exception.getMessage());
-	}
-
-	@Test
-	void shouldNotCreateUserWithoutLastName()
-	{
-		Exception exception = assertThrows(NullPointerException.class,
-			() -> new UserDTO("First Name", null, "name@exemple.com", "123456789"));
-		assertEquals("lastName is marked non-null but is null", exception.getMessage());
 	}
 
 	@Test
 	void shouldNotCreateUserWithoutEmail()
 	{
 		Exception exception = assertThrows(NullPointerException.class,
-			() -> new UserDTO("First Name", "last name", null, "123456789"));
+			() -> new UserDTO("Full Name",  null, "123456789"));
 		assertEquals("email is marked non-null but is null", exception.getMessage());
 	}
 
@@ -48,7 +40,7 @@ class UserDTOTests
 	void shouldNotCreateUserWithoutDocument()
 	{
 		Exception exception = assertThrows(NullPointerException.class,
-			() -> new UserDTO("First Name", "last name", "name@exemple.com", null));
+			() -> new UserDTO("Full Name", "name@exemple.com", null));
 		assertEquals("document is marked non-null but is null", exception.getMessage());
 	}
 }
