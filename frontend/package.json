@@ -1,0 +1,16 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.8.2",
+    "http-server": "^14.1.1"
+  },
+  "scripts": {
+    "start": "http-server -o -p 8081",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
